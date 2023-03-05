@@ -1,0 +1,17 @@
+<div>
+    <h1>Kittens#index</h1>
+    <p>Find me in app/views/kittens/index.html.erb</p>
+    <div class="grid grid-cols-3 gap-4">
+        <% @kittens.each do |k| %>
+            <div class = "bg-slate-500 text-slate-200 h-56 w-56 flex flex-col align-middle items-center justify-center rounded-3xl">
+            <p class = "text-bold text-3xl text-orange-200"><%=k.name%></p>
+            <p class = "text-bold text-3xl text-blue-200"><%=k.age%></p>
+            <p class = "text-bold text-3xl text-blue-200"><%=k.softness%></p>
+            <p class = "text-bold text-3xl text-blue-200"><%=k.cuteness%></p>
+            <%= link_to 'Edit Kitten', edit_kitten_path(k), class: "text-sm" %>
+            <%= link_to 'Kitten Details', kitten_path(k) %>
+            <%= button_to "Remove this kitten", kitten_path(k), method: :delete, class: "text-red-500" %>
+            </div>
+        <% end %>
+    </div>
+</div>

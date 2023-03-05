@@ -1,0 +1,18 @@
+<div class = "flex flex-col">
+    <h1>Kittens#new</h1>
+    <p>Find me in app/views/kittens/new.html.erb</p>
+    
+    <div class = "flex flex-col">
+        <%= form_with model: @kitten, class: "flex flex-col" do |f| %>
+          <%= f.label :name, "What's this kitten name?",class:'text-bold' %>
+          <%= f.text_field :name %>
+          <%= f.label :age, "Age" %>
+          <%= f.number_field :age, in: 1.0..40.0, step: 1 %>
+          <%= f.label :cuteness, "How cute?" %>
+          <%= f.select :cuteness, options_for_select(['Not very cute', 'Kinda cute', 'Very cute']) %>
+          <%= f.label :softness, "How soft?" %>
+          <%= f.select :softness, options_for_select(['Not so soft', 'Kinda soft', 'Super soft']) %>
+          <%= f.submit "Add a new kitten", class: "text-bold hover:text-blue-500" %>
+        <% end %>
+    </div>
+</div>

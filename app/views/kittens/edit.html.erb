@@ -1,0 +1,22 @@
+<div class="flex flex-col">
+  <p class="font-bold text-3xl"><%= @kitten.name %></p>
+  <p class="font-bold">Not cute enough? You can edit your kitten here!</p>
+
+  <div class="flex flex-col">
+    <%= form_with model: @kitten, class: "flex flex-col" do |f| %>
+      <%= f.label :name, "What's this kitten's name?", class: "font-bold" %>
+      <%= f.text_field :name, value: @kitten.name %>
+
+      <%= f.label :age, "Age" %>
+      <%= f.number_field :age, in: 1.0..40.0, step: 1, value: @kitten.age %>
+
+      <%= f.label :cuteness, "How cute?" %>
+      <%= f.select :cuteness, options_for_select(['Not very cute', 'Kinda cute', 'Very cute'], selected: @kitten.cuteness) %>
+
+      <%= f.label :softness, "How soft?" %>
+      <%= f.select :softness, options_for_select(['Not so soft', 'Kinda soft', 'Super soft'], selected: @kitten.softness) %>
+
+      <%= f.submit "Edit Kitten", class: "text-bold hover:text-blue-500" %>
+    <% end %>
+  </div>
+</div>
